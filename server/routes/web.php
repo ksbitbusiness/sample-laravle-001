@@ -36,3 +36,5 @@ Route::get('/admin/item/remove', function() {
 Route::get('/admin/item/edit', function() {
     return view('admin/item/edit');
 });
+
+Route::get('/users', 'UserController@index');
