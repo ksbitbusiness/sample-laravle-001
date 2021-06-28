@@ -22,12 +22,12 @@ services:
 
   db:
     image: mysql:5.7
-    container_name: mysql_memo_app
+    container_name: mysql_memo_app_laravel
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: test_database
-      MYSQL_USER: docker
-      MYSQL_PASSWORD: docker
+      MYSQL_DATABASE: test_database_laravel
+      MYSQL_USER: docker_laravel
+      MYSQL_PASSWORD: docker_laravel
       TZ: 'Asia/Tokyo'
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     volumes:
@@ -35,17 +35,5 @@ services:
       - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
       - ./mysql/sql:/docker-entrypoint-initdb.d
     ports:
-      - 3306:3306
-
-  # phpMyAdmin
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    container_name: phpmyadmin_memo_app
-    environment:
-      - PMA_ARBITRARY=1
-      - PMA_HOSTS=mysql_memo_app
-      - PMA_USER=root
-      - PMA_PASSWORD=root
-    ports:
-      - 8888:80
+      - 3307:3306
   
